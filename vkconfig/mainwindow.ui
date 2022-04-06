@@ -57,43 +57,42 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_diagnostic">
        <attribute name="title">
         <string>Diagnostic</string>
        </attribute>
-       <widget class="QWidget" name="gridLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>120</y>
-          <width>441</width>
-          <height>311</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_16">
-         <item row="0" column="0">
-          <widget class="QPushButton" name="pushButton">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>PushButton</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QTextBrowser" name="textBrowser"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="topMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <property name="bottomMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="QDial" name="dial"/>
+          </item>
+          <item>
+           <widget class="QDial" name="dial_3"/>
+          </item>
+          <item>
+           <widget class="QDial" name="dial_2"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_layers">
        <attribute name="title">
@@ -604,21 +603,18 @@
        <attribute name="title">
         <string>Launcher</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,0">
+       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,0,0">
         <property name="spacing">
          <number>6</number>
         </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
         <property name="topMargin">
-         <number>0</number>
+         <number>6</number>
         </property>
         <property name="rightMargin">
-         <number>0</number>
+         <number>6</number>
         </property>
         <property name="bottomMargin">
-         <number>0</number>
+         <number>6</number>
         </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,7">
@@ -775,27 +771,24 @@
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="edit_arguments"/>
-            </item>
             <item row="4" column="1">
              <widget class="QLineEdit" name="edit_log"/>
             </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="edit_executable"/>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="edit_dir"/>
             </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="edit_env"/>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_6">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>Env Variables:</string>
+               <string>Executable:</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="edit_dir"/>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="edit_arguments"/>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="edit_env"/>
             </item>
             <item row="1" column="2">
              <widget class="QPushButton" name="pushButton_dir">
@@ -810,18 +803,15 @@
               </property>
              </widget>
             </item>
-            <item row="4" column="2">
-             <widget class="QPushButton" name="pushButton_log">
-              <property name="maximumSize">
-               <size>
-                <width>32</width>
-                <height>16777215</height>
-               </size>
-              </property>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label">
               <property name="text">
-               <string>...</string>
+               <string>Output Log:</string>
               </property>
              </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="edit_executable"/>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_3">
@@ -856,17 +846,23 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_4">
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_6">
               <property name="text">
-               <string>Executable:</string>
+               <string>Env Variables:</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label">
+            <item row="4" column="2">
+             <widget class="QPushButton" name="pushButton_log">
+              <property name="maximumSize">
+               <size>
+                <width>32</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
-               <string>Output Log:</string>
+               <string>...</string>
               </property>
              </widget>
             </item>
@@ -882,21 +878,27 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>32</height>
+           </size>
+          </property>
           <property name="title">
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <property name="leftMargin">
-            <number>0</number>
+            <number>6</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>6</number>
            </property>
            <property name="rightMargin">
-            <number>0</number>
+            <number>6</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>6</number>
            </property>
            <item row="1" column="1">
             <widget class="QPushButton" name="push_button_clear_log">
@@ -908,19 +910,6 @@
              </property>
              <property name="text">
               <string>Clear</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="6">
-            <widget class="QTextBrowser" name="log_browser">
-             <property name="font">
-              <font>
-               <family>Consolas</family>
-               <pointsize>9</pointsize>
-              </font>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
              </property>
             </widget>
            </item>
@@ -1027,6 +1016,19 @@
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextBrowser" name="log_browser">
+          <property name="font">
+           <font>
+            <family>Consolas</family>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
          </widget>
         </item>
        </layout>
