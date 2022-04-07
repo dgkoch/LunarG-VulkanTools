@@ -101,6 +101,8 @@ class Environment {
     Environment(PathManager& paths, const Version& api_version = Version::VKHEADER);
     ~Environment();
 
+    bool mode_disable_layers;
+
     enum ResetMode { DEFAULT = 0, CLEAR, SYSTEM };
 
     void Reset(ResetMode mode);
@@ -138,6 +140,8 @@ class Environment {
 
     bool first_run;
     const Version api_version;
+
+    bool persistent_override;
 
     bool AppendCustomLayerPath(const std::string& path);
     bool RemoveCustomLayerPath(const std::string& path);

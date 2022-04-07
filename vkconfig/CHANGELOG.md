@@ -11,7 +11,13 @@
 
 # Release notes
 
-## [Vulkan Configurator 2.4.5](https://github.com/LunarG/VulkanTools/tree/master) - April 2022
+## [Vulkan Configurator 3.0.0](https://github.com/LunarG/VulkanTools/tree/master) - ??? 2022
+
+### Features:
+- Redesign main window UI around tabs
+- Add check box to disable all Vulkan Layers
+
+## [Vulkan Configurator 2.4.5](https://github.com/LunarG/VulkanTools/tree/sdk-1.3.211.0) - April 2022
 
 ### Features:
 - Add `VK_ADD_LAYER_PATH` Vulkan Loader variable handling

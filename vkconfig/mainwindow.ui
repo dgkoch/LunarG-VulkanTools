@@ -118,7 +118,7 @@
             <enum>Qt::Vertical</enum>
            </property>
            <widget class="QWidget" name="widgetTopLeft" native="true">
-            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,1">
              <property name="spacing">
               <number>16</number>
              </property>
@@ -135,65 +135,15 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QGroupBox" name="group_box_management">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>150</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>135</height>
-                </size>
-               </property>
+              <widget class="QGroupBox" name="groupBox_4">
                <property name="title">
-                <string/>
+                <string>Vulkan Layers Configuration by:</string>
                </property>
-               <property name="flat">
-                <bool>false</bool>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_14">
-                <item row="0" column="0">
-                 <widget class="QRadioButton" name="radio_fully">
-                  <property name="font">
-                   <font>
-                    <family>Arial</family>
-                    <pointsize>10</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Control fully Layers by the Vulkan Applications</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <layout class="QGridLayout" name="gridLayout_15">
-                  <item row="0" column="0">
-                   <widget class="QWidget" name="widget" native="true">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QCheckBox" name="check_box_apply_list">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>24</height>
-                     </size>
-                    </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <item>
+                   <widget class="QRadioButton" name="radio_control">
                     <property name="font">
                      <font>
                       <family>Arial</family>
@@ -201,28 +151,12 @@
                      </font>
                     </property>
                     <property name="text">
-                     <string>Apply only to the Vulkan Applications List</string>
+                     <string>Vulkan Applications</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QWidget" name="widget_2" native="true">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QCheckBox" name="check_box_persistent">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>24</height>
-                     </size>
-                    </property>
+                  <item>
+                   <widget class="QRadioButton" name="radio_override">
                     <property name="font">
                      <font>
                       <family>Arial</family>
@@ -230,65 +164,112 @@
                      </font>
                     </property>
                     <property name="text">
-                     <string>Continue Overriding Layers on Exit</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QPushButton" name="push_button_applications">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>136</width>
-                      <height>26</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>136</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Arial</family>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Edit Applications...</string>
+                     <string>Vulkan Configurator</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </item>
-                <item row="2" column="0">
-                 <widget class="QRadioButton" name="radio_override">
-                  <property name="font">
-                   <font>
-                    <family>Arial</family>
-                    <pointsize>10</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Override Layers by the Vulkan Configurator</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="radioButton">
-                  <property name="text">
-                   <string>Disable all Vulkan Layers by the Vulkan Configurator</string>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </widget>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="gridLayout_15">
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="check_box_persistent">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Continue Overriding Layers on Exit</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="check_box_disable">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Disable all Vulkan Layers</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="push_button_applications">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>136</width>
+                   <height>26</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>136</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Edit Applications...</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QCheckBox" name="check_box_apply_list">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>24</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Apply only to the Vulkan Applications List</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
              <item>
               <widget class="QGroupBox" name="group_box_configurations">
@@ -302,6 +283,18 @@
                 <string/>
                </property>
                <layout class="QGridLayout" name="gridLayout_3">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <property name="spacing">
                  <number>6</number>
                 </property>
@@ -1376,42 +1369,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1024</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuTools">
-    <property name="title">
-     <string>Tools</string>
-    </property>
-    <addaction name="actionVulkan_Info"/>
-    <addaction name="actionVulkan_Installation"/>
-    <addaction name="separator"/>
-    <addaction name="actionRestore_Default_Configurations"/>
-   </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>Help</string>
-    </property>
-    <addaction name="action_find_more_layers"/>
-    <addaction name="separator"/>
-    <addaction name="actionVulkan_specification"/>
-    <addaction name="actionVulkan_Layer_Specification"/>
-    <addaction name="actionGPU_Info_Reports"/>
-    <addaction name="separator"/>
-    <addaction name="action_readme"/>
-    <addaction name="action_changelog"/>
-    <addaction name="separator"/>
-    <addaction name="actionAbout"/>
-   </widget>
-   <addaction name="menuTools"/>
-   <addaction name="menuHelp"/>
   </widget>
   <action name="actionHistory">
    <property name="text">

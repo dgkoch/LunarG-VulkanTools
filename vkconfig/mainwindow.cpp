@@ -39,6 +39,7 @@
 #include "../vkconfig_core/doc.h"
 #include "../vkconfig_core/date.h"
 
+#include <QMenu>
 #include <QProcess>
 #include <QMessageBox>
 #include <QFrame>
@@ -166,10 +167,10 @@ void MainWindow::UpdateUI() {
 
     // Mode states
     ui->radio_override->setChecked(environment.UseOverride());
-    ui->radio_fully->setChecked(!environment.UseOverride());
+    ui->radio_control->setChecked(!environment.UseOverride());
 
     // Update configurations
-    ui->group_box_configurations->setEnabled(environment.UseOverride());
+    ui->group_box_configurations->setEnabled(environment.UseOverride() && !environment.mode_disable_layers);
 
     ui->configuration_tree->setCurrentItem(nullptr);
     ui->configuration_tree->setSelectionMode(has_active_configuration ? QAbstractItemView::SingleSelection
@@ -206,7 +207,7 @@ void MainWindow::UpdateUI() {
     ui->push_button_remove->setEnabled(environment.UseOverride() && has_active_configuration);
     ui->push_button_find->setEnabled(environment.UseOverride());
     ui->push_button_new->setEnabled(environment.UseOverride());
-    ui->settings_tree->setEnabled(environment.UseOverride() && has_active_configuration);
+    ui->settings_tree->setEnabled(environment.UseOverride() && !environment.mode_disable_layers && has_active_configuration);
 
     // Handle application lists states
     ui->check_box_apply_list->setEnabled(!been_warned_about_old_loader && environment.UseOverride());
@@ -240,6 +241,9 @@ void MainWindow::UpdateUI() {
     // Handle persistent states
     ui->check_box_persistent->setEnabled(environment.UseOverride());
     ui->check_box_persistent->setChecked(environment.UsePersistentOverrideMode());
+
+    ui->check_box_disable->setEnabled(environment.UseOverride());
+    ui->check_box_disable->setChecked(environment.mode_disable_layers);
 
     // Launcher states
     const bool has_application_list = !environment.GetApplications().empty();
@@ -363,7 +367,7 @@ void MainWindow::on_radio_override_clicked() {
 }
 
 // No override at all, fully controlled by the application
-void MainWindow::on_radio_fully_clicked() {
+void MainWindow::on_radio_control_clicked() {
     Configurator &configurator = Configurator::Get();
 
     configurator.environment.SetMode(OVERRIDE_MODE_ACTIVE, false);
@@ -407,6 +411,13 @@ void MainWindow::on_check_box_apply_list_clicked() {
 
     configurator.configurations.RefreshConfiguration(configurator.layers.available_layers);
 
+    UpdateUI();
+}
+
+void MainWindow::on_check_box_disable_clicked() {
+    Configurator &configurator = Configurator::Get();
+    configurator.environment.mode_disable_layers = ui->check_box_disable->isChecked();
+    configurator.configurations.RefreshConfiguration(configurator.layers.available_layers);
     UpdateUI();
 }
 
