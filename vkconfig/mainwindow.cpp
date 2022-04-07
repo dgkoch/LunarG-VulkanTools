@@ -127,6 +127,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->splitter_2->restoreState(environment.Get(LAYOUT_MAIN_SPLITTER2));
     ui->splitter_3->restoreState(environment.Get(LAYOUT_MAIN_SPLITTER3));
 
+    // Update launcher
+    const Application &application = configurator.environment.GetApplication(0);
+    ui->edit_executable->setText(application.executable_path.c_str());
+    ui->edit_dir->setText(application.working_folder.c_str());
+    ui->edit_arguments->setText(application.arguments.c_str());
+    ui->edit_env->setText(application.env.c_str());
+    ui->edit_log->setText(ReplaceBuiltInVariable(application.log_file.c_str()).c_str());
+
     configurator.configurations.RefreshConfiguration(configurator.layers.available_layers);
 
     LoadConfigurationList();
@@ -1545,13 +1553,12 @@ void MainWindow::on_push_button_launcher_clicked() {
     connect(_launch_application.get(), SIGNAL(finished(int, QProcess::ExitStatus)), this,
             SLOT(processClosed(int, QProcess::ExitStatus)));
 
-    _launch_application->setProgram(active_application.executable_path.c_str());
-    _launch_application->setWorkingDirectory(active_application.working_folder.c_str());
-    _launch_application->setEnvironment(BuildEnvVariables());
+    _launch_application->setProgram(ui->edit_executable->text());
+    _launch_application->setWorkingDirectory(ui->edit_dir->text());
+    _launch_application->setEnvironment(BuildEnvVariables() + ui->edit_env->text().split(" "));
 
     if (!active_application.arguments.empty()) {
-        const QStringList args = QString(active_application.arguments.c_str()).split(" ");
-        _launch_application->setArguments(args);
+        _launch_application->setArguments(ui->edit_arguments->text().split(" "));
     }
 
     _launch_application->start(QIODevice::ReadOnly | QIODevice::Unbuffered);
