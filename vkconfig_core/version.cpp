@@ -41,7 +41,7 @@ const Version Version::VKHEADER(1, 0, VK_HEADER_VERSION);
 #endif
 const Version Version::VERSION_NULL(0u);
 const char *VKCONFIG_NAME = "Vulkan Configurator";
-const char *VKCONFIG_SHORT_NAME = "vkconfig";
+const char *VKCONFIG_SHORT_NAME = "vkconfig3";
 
 static Version GetVersionData(const char *version) {
     uint32_t version_major = 0;
